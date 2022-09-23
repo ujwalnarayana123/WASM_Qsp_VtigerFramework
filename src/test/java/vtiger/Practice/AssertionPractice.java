@@ -18,6 +18,7 @@ public class AssertionPractice {
 		Assert.assertEquals("B","A"); // hard assert it will stop further execution
 		System.out.println("Step 3");
 		System.out.println("Step 4");
+		System.out.println("Step 5");
 		
 	}
 	
