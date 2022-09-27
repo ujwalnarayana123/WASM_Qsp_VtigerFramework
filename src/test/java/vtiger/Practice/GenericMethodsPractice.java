@@ -1,15 +1,15 @@
 package vtiger.Practice;
 
 public class GenericMethodsPractice {
-	
-	//caller
+
+	// caller
 	public static void main(String[] args) {
-		
+
 		int sum = GenericMethodsPractice.add(200, 20);
 		System.out.println(sum);
 	}
 
-	//called 
+	// called
 //	public static void add()
 //	{
 //		int a=50;
@@ -17,11 +17,10 @@ public class GenericMethodsPractice {
 //		int c = a+b;
 //		System.out.println(c);
 //	}
-	
-	//called
-	public static int add(int a, int b)
-	{
-		int c = a+b;
+
+	// called
+	public static int add(int a, int b) {
+		int c = a + b;
 		return c;
 	}
 }

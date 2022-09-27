@@ -21,12 +21,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import vtiger.ObjectRepository.HomePage;
 import vtiger.ObjectRepository.LoginPage;
 
-/**
- * This class consists of all basic configuration annotations of testNG
- * to perform common functionalities.
- * @author Chaitra M
- *
- */
 public class BaseClass {
 	
 	public DatabaseUtility dbUtil = new DatabaseUtility();

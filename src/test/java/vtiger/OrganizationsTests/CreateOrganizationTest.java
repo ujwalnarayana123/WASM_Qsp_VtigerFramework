@@ -24,8 +24,7 @@ public class CreateOrganizationTest extends BaseClass{
 	
 	@Test
 	public void createOrgTest() throws IOException
-	{
-		
+	{		
 		WebDriver driver;
 		
 		//Generate random number
@@ -90,8 +89,7 @@ public class CreateOrganizationTest extends BaseClass{
 		driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();
         
         //Step 8: logout
-        
-		
+        		
 	}
 	
 	@Test

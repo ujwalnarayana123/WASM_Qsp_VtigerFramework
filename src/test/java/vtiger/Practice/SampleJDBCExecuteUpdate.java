@@ -48,9 +48,7 @@ public class SampleJDBCExecuteUpdate {
 			con.close();
 			System.out.println("database closed");
 		}
-		
-		
-	
+
 	}
 
 }
