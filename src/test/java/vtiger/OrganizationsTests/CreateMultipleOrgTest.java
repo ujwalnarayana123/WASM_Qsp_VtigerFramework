@@ -29,7 +29,7 @@ public class CreateMultipleOrgTest {
 	WebDriver driver;
 	
 	@Test(dataProvider = "OrgData")
-	public void createMultipleOrgTest(String Org, String industry) throws IOException
+	public void createMultipleOrgTest(String Org, String industry) throws Exception
 	{
 		//Step 2: Read all the necessary data
 				String BROWSER = pUtil.readDataFromPFile("browser");

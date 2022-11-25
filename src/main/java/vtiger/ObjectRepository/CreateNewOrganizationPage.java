@@ -9,6 +9,7 @@ import vtiger.GenericUtility.WebDriverUtility;
 
 public class CreateNewOrganizationPage extends WebDriverUtility{
 	
+	
 	@FindBy(name = "accountname")
 	private WebElement OrgNameEdt;
 	

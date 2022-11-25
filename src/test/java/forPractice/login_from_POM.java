@@ -1,4 +1,4 @@
-package vtiger.OrganizationsTests;
+package forPractice;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -20,13 +20,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-import vtiger.GenericUtility.BaseClass;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import vtiger.ObjectRepository.LoginPage;
 
-public class CreateOrganizationTest extends BaseClass{
+
+public class login_from_POM {
+
 	
-	@Test
-	public void createOrgTest() throws IOException
-	{		
+	public static void main(String[] args) throws Exception {
 		WebDriver driver;
 		
 		
@@ -44,22 +45,17 @@ public class CreateOrganizationTest extends BaseClass{
         String USERNAME = pObj.getProperty("username");
         String PASSWORD = pObj.getProperty("password");
         
-        //read data from Excel Sheet -----> Test Data
-        FileInputStream fise = new FileInputStream(".\\src\\test\\resources\\TestData1.xlsx");
-        Workbook wb = WorkbookFactory.create(fise);
-        Sheet sh = wb.getSheet("Organization");
-        Row rw = sh.getRow(1);
-        Cell cel = rw.getCell(2);
-        String ORGNAME = cel.getStringCellValue();
-        
+               
         //Step 2: launch the browser -- run time polyporphism
         if(BROWSER.equalsIgnoreCase("chrome"))
         {
+        	WebDriverManager.chromedriver().setup();
         	driver = new ChromeDriver();
         	System.out.println("--- chrome browser launched ----");
         }
         else if(BROWSER.equalsIgnoreCase("Firefox"))
         {
+        	WebDriverManager.firefoxdriver().setup();
         	driver = new FirefoxDriver();
         	System.out.println("---- Firefox browser launched----");
         }
@@ -74,32 +70,14 @@ public class CreateOrganizationTest extends BaseClass{
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.get(URL);
         
-        //Step 3: login to app
-        driver.findElement(By.name("user_name")).sendKeys(USERNAME);
-		driver.findElement(By.name("user_password")).sendKeys(PASSWORD);
-		driver.findElement(By.id("submitButton")).click();
-        
-        //Step 4: Navigate to Organizations
-        driver.findElement(By.linkText("Organizations")).click();
-		
-        //Step 5: Click on create organization
-		driver.findElement(By.xpath("//img[@alt='Create Organization...']")).click();
-		
-        //Step 6: Create Organization with mandatory fields
-		driver.findElement(By.name("accountname")).sendKeys(ORGNAME+RANDOM);
-		
-        //Step 7: save
-		driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();
-        
-        //Step 8: logout
+        LoginPage login=new LoginPage(driver);
+        login.loginToApp(USERNAME, PASSWORD);
         		
 	}
 	
-	@Test
-	public void demoTest()
-	{
-		System.out.println("This is demo");
-	}
- 
- 
+
+	
+	
+			
+	
 }
